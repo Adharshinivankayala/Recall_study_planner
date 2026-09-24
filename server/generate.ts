@@ -18,7 +18,7 @@ app.use((err, _req, res, next) => {
 
 const PORT = process.env.PORT || 3001;
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
-const GEMINI_MODEL = process.env.GEMINI_MODEL || "gemini-3.5-flash";
+const GEMINI_MODEL = process.env.GEMINI_MODEL || "gemini-3.5-flash-lite";
 
 function getCardRange(topic) {
   const words = topic.trim().split(/\s+/).filter(Boolean).length;

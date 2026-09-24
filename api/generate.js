@@ -40,7 +40,7 @@ export default async function handler(req, res) {
     return res.status(500).json({ error: "MISSING_API_KEY", message: "Server is missing GEMINI_API_KEY. Add it in the Vercel project environment variables." });
   }
 
-  const model = process.env.GEMINI_MODEL || "gemini-3.5-flash";
+  const model = process.env.GEMINI_MODEL || "gemini-3.5-flash-lite";
   const cardRange = getCardRange(topic.trim());
   const controller = new AbortController();
   const timeout = setTimeout(() => controller.abort(), 55000);
