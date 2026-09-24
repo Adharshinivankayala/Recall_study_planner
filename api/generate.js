@@ -1,6 +1,6 @@
 export const config = { maxDuration: 60 };
 const REQUEST_TIMEOUT_MS = 22000;
-const FALLBACK_MODEL = "gemini-2.5-flash-lite";
+const FALLBACK_MODELS = ["gemini-2.5-flash-lite", "gemini-2.5-flash"];
 
 function getCardRange(topic) {
   const words = topic.trim().split(/\s+/).filter(Boolean).length;
@@ -96,7 +96,7 @@ export default async function handler(req, res) {
   }
 
   const primaryModel = process.env.GEMINI_MODEL || "gemini-3.5-flash-lite";
-  const models = [...new Set([primaryModel, FALLBACK_MODEL])];
+  const models = [...new Set([primaryModel, ...FALLBACK_MODELS])];
   const cleanTopic = topic.trim();
   const cardRange = getCardRange(cleanTopic);
   let lastError;
@@ -126,7 +126,7 @@ export default async function handler(req, res) {
           message: "Gemini has reached this project's quota or rate limit. Check usage and billing in Google AI Studio, then try again.",
         });
       }
-      if (response.status < 500) break;
+      if (response.status < 500 && response.status !== 404) break;
     } catch (err) {
       lastError = err;
       if (err.name !== "AbortError") allAttemptsTimedOut = false;
