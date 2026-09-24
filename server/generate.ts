@@ -60,7 +60,7 @@ app.post("/api/generate", async (req, res) => {
   const cardRange = getCardRange(topic.trim());
 
   const controller = new AbortController();
-  const timeout = setTimeout(() => controller.abort(), 45000);
+  const timeout = setTimeout(() => controller.abort(), 55000);
 
   try {
     const url = `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent?key=${GEMINI_API_KEY}`;
@@ -71,7 +71,7 @@ app.post("/api/generate", async (req, res) => {
       body: JSON.stringify({
         contents: [{ parts: [{ text: buildPrompt(topic.trim()) }] }],
         generationConfig: {
-          temperature: 0.7,
+          thinkingConfig: { thinkingLevel: "LOW" },
           responseMimeType: "application/json",
           responseSchema: {
             type: "object",

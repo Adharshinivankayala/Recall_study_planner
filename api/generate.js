@@ -1,4 +1,4 @@
-﻿export const config = { maxDuration: 60 };
+export const config = { maxDuration: 60 };
 
 function getCardRange(topic) {
   const words = topic.trim().split(/\s+/).filter(Boolean).length;
@@ -43,7 +43,7 @@ export default async function handler(req, res) {
   const model = process.env.GEMINI_MODEL || "gemini-3.5-flash";
   const cardRange = getCardRange(topic.trim());
   const controller = new AbortController();
-  const timeout = setTimeout(() => controller.abort(), 45000);
+  const timeout = setTimeout(() => controller.abort(), 55000);
 
   try {
     const url = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${apiKey}`;
@@ -54,7 +54,7 @@ export default async function handler(req, res) {
       body: JSON.stringify({
         contents: [{ parts: [{ text: buildPrompt(topic.trim()) }] }],
         generationConfig: {
-          temperature: 0.7,
+          thinkingConfig: { thinkingLevel: "LOW" },
           responseMimeType: "application/json",
           responseSchema: {
             type: "object",
