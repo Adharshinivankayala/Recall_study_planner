@@ -124,3 +124,14 @@ AI assistants, including Claude and OpenAI Codex, were used to help scaffold and
 ## Submission notes
 
 Before sharing the project, configure `server/.env`, confirm `npm install && npm start` works, and record a short walkthrough of generation, study mode, quiz scoring, and error recovery.
+
+## Deploy to Vercel
+
+This project deploys the Vite frontend and its API endpoints together.
+
+1. Import this GitHub repository in Vercel: <https://github.com/Adharshinivankayala/Recall_study_planner>.
+2. Keep the project root as the Root Directory. Vercel uses `npm run build` and the `dist` output from `vercel.json`.
+3. In the Vercel project settings, add `GEMINI_API_KEY` as an environment variable. You can also set `GEMINI_MODEL` if you want to override the default model.
+4. Redeploy the project after adding the environment variable.
+
+The `/api/generate` and `/api/health` endpoints run as Vercel Functions. The Gemini key stays on the server and is never included in the frontend bundle.
