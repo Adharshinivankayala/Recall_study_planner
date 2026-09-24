@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <filter id="clay" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="2" result="blur" />
+      <feOffset dx="2" dy="3" result="offset" />
+      <feComponentTransfer><feFuncA type="linear" slope=".18" /></feComponentTransfer>
+      <feMerge><feMergeNode /><feMergeNode in="SourceGraphic" /></feMerge>
+    </filter>
+  </defs>
+  <rect x="4" y="4" width="56" height="56" rx="20" fill="#DCD6FF" />
+  <g filter="url(#clay)" stroke="#3D3450" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5">
+    <path d="M15 20.5c7-3 12-1.5 17 2v25c-5.5-3.5-10.5-5-17-2z" fill="#FFDCC2" />
+    <path d="M49 20.5c-7-3-12-1.5-17 2v25c5.5-3.5 10.5-5 17-2z" fill="#C8F4DE" />
+    <path d="M32 22.5v25" fill="none" />
+    <path d="M20 28h7M20 34h7M37 28h7M37 34h7" fill="none" />
+  </g>
+  <path d="m48 11 1.7 4.3L54 17l-4.3 1.7L48 23l-1.7-4.3L42 17l4.3-1.7z" fill="#FF8FA3" />
+</svg>

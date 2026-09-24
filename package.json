@@ -1,0 +1,32 @@
+{
+    "name":  "recall_ai",
+    "private":  true,
+    "version":  "0.1.0",
+    "type":  "module",
+    "scripts":  {
+                    "dev":  "concurrently -n server,client -c green,cyan \"npm:server\" \"npm:client\"",
+                    "start":  "concurrently -n server,client -c green,cyan \"npm:server\" \"npm:client\"",
+                    "server":  "node --experimental-strip-types server/generate.ts",
+                    "client":  "vite --config vite.config.js",
+                    "build":  "vite build --config vite.config.js",
+                    "preview":  "vite preview --config vite.config.js"
+                },
+    "dependencies":  {
+                         "@hugeicons/core-free-icons":  "^4.3.5",
+                         "@hugeicons/react":  "^1.1.10",
+                         "cors":  "^2.8.5",
+                         "dotenv":  "^16.4.5",
+                         "express":  "^4.19.2",
+                         "motion":  "^13.4.2",
+                         "react":  "^18.3.1",
+                         "react-dom":  "^18.3.1"
+                     },
+    "devDependencies":  {
+                            "@vitejs/plugin-react":  "^4.3.1",
+                            "concurrently":  "^8.2.2",
+                            "vite":  "^8.3.0"
+                        },
+    "engines":  {
+                    "node":  "\u003e=22.12.0"
+                }
+}

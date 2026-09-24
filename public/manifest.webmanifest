@@ -1,0 +1,17 @@
+{
+  "name": "Recall — AI Study Assistant",
+  "short_name": "Recall",
+  "description": "Turn any topic into flashcards you can study and quiz yourself on.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#EFEAFB",
+  "theme_color": "#EFEAFB",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
