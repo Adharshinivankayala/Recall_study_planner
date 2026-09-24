@@ -1,6 +1,6 @@
 export const config = { maxDuration: 60 };
-const REQUEST_TIMEOUT_MS = 22000;
-const FALLBACK_MODELS = ["gemini-2.5-flash-lite", "gemini-2.5-flash"];
+const REQUEST_TIMEOUT_MS = 26000;
+const FALLBACK_MODELS = ["gemini-3.5-flash"];
 
 function getCardRange(topic) {
   const words = topic.trim().split(/\s+/).filter(Boolean).length;
